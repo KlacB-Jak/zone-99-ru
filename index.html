@@ -1,158 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZONE-99-RU // Терминал</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Подключение шрифта для SCI-FI стиля -->
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Справочная система исследовательского комплекса «Контур».">
+  <title>Контур — центральный узел</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo" data-target="home">ZONE-99-RU</div>
-      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">≡</button>
-      <nav aria-label="Основная навигация">
-        <ul class="nav-list">
-          <li><button class="nav-link active" data-target="home">Главная</button></li>
-          <li><button class="nav-link" data-target="roles">База ролей</button></li>
-          <li><button class="nav-link" data-target="dossier">Досье</button></li>
-        </ul>
-      </nav>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Контур — главная">
+      <span class="brand__mark" aria-hidden="true">К</span>
+      <span class="brand__text">
+        <strong>КОНТУР</strong>
+        <span>ИНФОРМАЦИОННАЯ СИСТЕМА</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+      <span class="sr-only">Открыть меню</span>
+    </button>
+
+    <nav class="site-nav" id="primary-nav" aria-label="Основная навигация">
+      <a class="site-nav__link is-current" href="index.html" aria-current="page">Обзор</a>
+      <a class="site-nav__link" href="roles.html">Реестр ролей</a>
+      <a class="site-nav__link" href="object.html">Карточка объекта</a>
+    </nav>
+
+    <div class="header-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>УЗЕЛ: В СЕТИ</span>
     </div>
   </header>
 
-  <main class="container main-content">
-    
-    <!-- ГЛАВНАЯ -->
-    <section id="home" class="page-section active">
-      <div class="panel terminal-panel">
-        <div class="terminal-header">
-          <span>CONNECTION_ESTABLISHED</span>
-          <span class="blink">_</span>
+  <main id="main">
+    <section class="hero page-shell">
+      <div class="hero__content">
+        <p class="eyebrow"><span class="eyebrow__line"></span> ЦЕНТРАЛЬНЫЙ УЗЕЛ / 01</p>
+        <h1>Система<br><span class="text-accent">наблюдения</span></h1>
+        <p class="hero__lead">
+          Справочная среда исследовательского комплекса. Данные разделены по
+          направлениям доступа и регулярно проходят сверку.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="roles.html">Открыть реестр <span aria-hidden="true">→</span></a>
+          <a class="button button--quiet" href="object.html">Просмотреть карточку</a>
         </div>
-        <div class="terminal-body">
-          <p class="mono-text dim">> SECURE_CHANNEL: ACTIVE</p>
-          <p class="mono-text dim">> AWAITING_USER_INPUT...</p>
-          
-          <div class="nav-buttons-grid">
-            <button class="btn strict-btn" data-target="roles">[ БАЗА ДАННЫХ РОЛЕЙ ]</button>
-            <button class="btn strict-btn" data-target="dossier">[ АРХИВ ОБЪЕКТОВ ]</button>
-          </div>
+      </div>
+
+      <aside class="hero-panel panel" aria-label="Состояние системы">
+        <div class="panel__topline">
+          <span>СОСТОЯНИЕ СРЕДЫ</span>
+          <span class="mono">SYS / 01</span>
         </div>
+        <div class="system-readout">
+          <span class="system-readout__value">04</span>
+          <span class="system-readout__label">АКТИВНЫХ РАЗДЕЛА</span>
+        </div>
+        <div class="meter" role="img" aria-label="Стабильность узла: 87 процентов">
+          <div class="meter__labels"><span>СТАБИЛЬНОСТЬ УЗЛА</span><span>87%</span></div>
+          <div class="meter__track"><span style="width: 87%"></span></div>
+        </div>
+        <ul class="status-list">
+          <li><span>СИНХРОНИЗАЦИЯ</span><span class="status-value">ЗАВЕРШЕНА</span></li>
+          <li><span>ПОСЛЕДНЯЯ СВЕРКА</span><span class="status-value">06:42:18</span></li>
+          <li><span>КАНАЛ ДАННЫХ</span><span class="status-value">СТАБИЛЕН</span></li>
+        </ul>
+        <span class="corner corner--tl" aria-hidden="true"></span>
+        <span class="corner corner--br" aria-hidden="true"></span>
+      </aside>
+
+      <div class="hero__index mono" aria-hidden="true">К/С — 001.04</div>
+    </section>
+
+    <section class="page-shell section-block" aria-labelledby="sections-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__line"></span> НАВИГАЦИЯ</p>
+          <h2 id="sections-title">Разделы системы</h2>
+        </div>
+        <p class="section-heading__note">Выберите направление для просмотра данных.</p>
+      </div>
+
+      <div class="feature-grid">
+        <a class="feature-card panel" href="roles.html">
+          <span class="feature-card__number mono">01 / РЕЕСТР</span>
+          <span class="feature-card__icon" aria-hidden="true">▤</span>
+          <h3>Роли и функции</h3>
+          <p>Каталог назначений, ответственности и рабочих профилей комплекса.</p>
+          <span class="feature-card__link">Перейти в раздел <span aria-hidden="true">→</span></span>
+          <span class="corner corner--tl" aria-hidden="true"></span>
+          <span class="corner corner--br" aria-hidden="true"></span>
+        </a>
+
+        <a class="feature-card panel" href="role.html">
+          <span class="feature-card__number mono">02 / ПРОФИЛЬ</span>
+          <span class="feature-card__icon" aria-hidden="true">⌁</span>
+          <h3>Профиль роли</h3>
+          <p>Пример детальной записи с вкладками для связанных материалов.</p>
+          <span class="feature-card__link">Открыть профиль <span aria-hidden="true">→</span></span>
+          <span class="corner corner--tl" aria-hidden="true"></span>
+          <span class="corner corner--br" aria-hidden="true"></span>
+        </a>
+
+        <a class="feature-card panel" href="object.html">
+          <span class="feature-card__number mono">03 / ДОСЬЕ</span>
+          <span class="feature-card__icon" aria-hidden="true">▧</span>
+          <h3>Карточка объекта</h3>
+          <p>Сводка наблюдений, условий содержания и текущих ограничений.</p>
+          <span class="feature-card__link">Открыть карточку <span aria-hidden="true">→</span></span>
+          <span class="corner corner--tl" aria-hidden="true"></span>
+          <span class="corner corner--br" aria-hidden="true"></span>
+        </a>
       </div>
     </section>
 
-    <!-- СПИСОК РОЛЕЙ -->
-    <section id="roles" class="page-section">
-      <div class="panel">
-        <h2 class="section-title">// OPERATORS_DATABASE</h2>
-        <div class="list-container">
-          <div class="list-item" data-target="role-details">
-            <div class="list-info">
-              <span class="list-id">#A7-X9</span>
-              <span class="list-name">VECTOR</span>
-            </div>
-            <span class="list-status active-status">ONLINE</span>
-          </div>
-          <div class="list-item disabled">
-            <div class="list-info">
-              <span class="list-id">#B2-K4</span>
-              <span class="list-name">ECHO</span>
-            </div>
-            <span class="list-status">OFFLINE</span>
-          </div>
-          <div class="list-item disabled">
-            <div class="list-info">
-              <span class="list-id">#C9-M1</span>
-              <span class="list-name">CHAOS</span>
-            </div>
-            <span class="list-status">TERMINATED</span>
-          </div>
+    <section class="page-shell section-block">
+      <div class="notice panel">
+        <span class="notice__mark" aria-hidden="true">!</span>
+        <div>
+          <p class="eyebrow">СЛУЖЕБНОЕ ПРИМЕЧАНИЕ</p>
+          <p>Материалы в этом интерфейсе демонстрационные. Содержание разделов может обновляться после сверки записей.</p>
         </div>
+        <span class="mono notice__ref">REF / 7A</span>
       </div>
     </section>
-
-    <!-- ДЕТАЛИ РОЛИ (Слева вкладки, справа контент) -->
-    <section id="role-details" class="page-section">
-      <div class="panel" style="margin-bottom: var(--space-md);">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h1 class="section-title" style="margin: 0; border: none;">OPERATOR: VECTOR</h1>
-          <button class="btn strict-btn small-btn" data-target="roles">[ НАЗАД ]</button>
-        </div>
-      </div>
-
-      <div class="role-layout">
-        <!-- Вертикальный список вкладок слева -->
-        <div class="tabs-sidebar" role="tablist" aria-label="Информация о роли">
-          <button class="tab-btn active" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">01. Общие данные</button>
-          <button class="tab-btn" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">02. Снаряжение</button>
-          <button class="tab-btn" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">03. Модификации</button>
-          <button class="tab-btn" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">04. Психопрофиль</button>
-          <button class="tab-btn" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">05. История</button>
-          <button class="tab-btn" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1">06. Задачи</button>
-          <button class="tab-btn" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="false" tabindex="-1">07. Протоколы</button>
-          <button class="tab-btn" role="tab" id="tab-8" aria-controls="panel-8" aria-selected="false" tabindex="-1">08. Связь</button>
-        </div>
-
-        <!-- Контент по центру -->
-        <div class="tabs-content-area">
-          <div class="tab-content active panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-            <h2 class="section-title">// ОБЩИЕ ДАННЫЕ</h2>
-            <p class="mono-text placeholder-text">[ ДАННЫЕ ОТСУТСТВУЮТ ]</p>
-            <p class="mono-text placeholder-text">[ ОЖИДАНИЕ СИНХРОНИЗАЦИИ... ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-            <h2 class="section-title">// СНАРЯЖЕНИЕ</h2>
-            <p class="mono-text placeholder-text">[ ДОСТУП ЗАПРЕЩЕН ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
-            <h2 class="section-title">// МОДИФИКАЦИИ</h2>
-            <p class="mono-text placeholder-text">[ ОШИБКА ЧТЕНИЯ ДАННЫХ ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
-            <h2 class="section-title">// ПСИХОПРОФИЛЬ</h2>
-            <p class="mono-text placeholder-text">[ СЕКТОР ЗАСЕКРЕЧЕН ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
-            <h2 class="section-title">// ИСТОРИЯ</h2>
-            <p class="mono-text placeholder-text">[ АРХИВ ПУСТ ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" hidden>
-            <h2 class="section-title">// ЗАДАЧИ</h2>
-            <p class="mono-text placeholder-text">[ НЕТ АКТИВНЫХ КОНТРАКТОВ ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-7" aria-labelledby="tab-7" hidden>
-            <h2 class="section-title">// ПРОТОКОЛЫ</h2>
-            <p class="mono-text placeholder-text">[ ПРОТОКОЛЫ НЕ ЗАГРУЖЕНЫ ]</p>
-          </div>
-          <div class="tab-content panel" role="tabpanel" id="panel-8" aria-labelledby="tab-8" hidden>
-            <h2 class="section-title">// СВЯЗЬ</h2>
-            <p class="mono-text placeholder-text">[ КАНАЛ НЕДОСТУПЕН ]</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ДОСЬЕ ОБЪЕКТА -->
-    <section id="dossier" class="page-section">
-      <div class="panel">
-        <h2 class="section-title">// ДОСЬЕ ОБЪЕКТА</h2>
-        <div class="dossier-body">
-          <p class="mono-text"><span class="dim">ID:</span> [ ДАННЫЕ ОТСУТСТВУЮТ ]</p>
-          <p class="mono-text"><span class="dim">КЛАСС:</span> [ ДАННЫЕ ОТСУТСТВУЮТ ]</p>
-          <p class="mono-text"><span class="dim">ОПИСАНИЕ:</span> [ ФАЙЛ ПОВРЕЖДЕН ]</p>
-        </div>
-        <div style="margin-top: var(--space-xl);">
-          <button class="btn strict-btn" data-target="home">[ ВОЗВРАТ ]</button>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <script src="js/main.js"></script>
+  <footer class="site-footer page-shell">
+    <span>КОНТУР <span class="footer-muted">/ Справочная среда</span></span>
+    <span class="mono">ВЕРСИЯ 2.4.1 <span class="footer-muted">·</span> <span id="current-year">2026</span></span>
+  </footer>
 </body>
 </html>
