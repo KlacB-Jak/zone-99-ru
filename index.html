@@ -1,140 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090909">
-  <meta name="description" content="Справочная система исследовательского комплекса «Контур».">
-  <title>Контур — центральный узел</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZONE-99-RU // TERMINAL</title>
+    <link rel="icon" type="image/png" href="image-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <audio id="bg-music" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Контур — главная">
-      <span class="brand__mark" aria-hidden="true">К</span>
-      <span class="brand__text">
-        <strong>КОНТУР</strong>
-        <span>ИНФОРМАЦИОННАЯ СИСТЕМА</span>
-      </span>
-    </a>
-
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-      <span class="menu-toggle__icon" aria-hidden="true"></span>
-      <span class="sr-only">Открыть меню</span>
-    </button>
-
-    <nav class="site-nav" id="primary-nav" aria-label="Основная навигация">
-      <a class="site-nav__link is-current" href="index.html" aria-current="page">Обзор</a>
-      <a class="site-nav__link" href="roles.html">Реестр ролей</a>
-      <a class="site-nav__link" href="object.html">Карточка объекта</a>
-    </nav>
-
-    <div class="header-status">
-      <span class="status-dot" aria-hidden="true"></span>
-      <span>УЗЕЛ: В СЕТИ</span>
+    <div class="audio-control" id="audio-control">
+        <div class="audio-label">AUDIO</div>
+        <input type="range" id="volume-slider" min="0" max="100" value="30" class="volume-slider">
+        <div class="volume-value" id="volume-value">30%</div>
     </div>
-  </header>
 
-  <main id="main">
-    <section class="hero page-shell">
-      <div class="hero__content">
-        <p class="eyebrow"><span class="eyebrow__line"></span> ЦЕНТРАЛЬНЫЙ УЗЕЛ / 01</p>
-        <h1>Система<br><span class="text-accent">наблюдения</span></h1>
-        <p class="hero__lead">
-          Справочная среда исследовательского комплекса. Данные разделены по
-          направлениям доступа и регулярно проходят сверку.
-        </p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="roles.html">Открыть реестр <span aria-hidden="true">→</span></a>
-          <a class="button button--quiet" href="object.html">Просмотреть карточку</a>
+    <div class="hud-background" aria-hidden="true">
+        <div class="hud-grid-base"></div>
+        
+        <div class="hud-vertical-bars">
+            <div class="v-bar" style="left: 5%; animation-duration: 18s; animation-delay: 0s;"></div>
+            <div class="v-bar" style="left: 12%; animation-duration: 25s; animation-delay: -2s;"></div>
+            <div class="v-bar" style="left: 22%; animation-duration: 15s; animation-delay: -5s;"></div>
+            <div class="v-bar" style="left: 35%; animation-duration: 30s; animation-delay: -1s;"></div>
+            <div class="v-bar" style="left: 48%; animation-duration: 20s; animation-delay: -7s;"></div>
+            <div class="v-bar" style="left: 58%; animation-duration: 22s; animation-delay: -3s;"></div>
+            <div class="v-bar" style="left: 68%; animation-duration: 17s; animation-delay: -9s;"></div>
+            <div class="v-bar" style="left: 78%; animation-duration: 28s; animation-delay: -4s;"></div>
+            <div class="v-bar" style="left: 88%; animation-duration: 19s; animation-delay: -6s;"></div>
+            <div class="v-bar" style="left: 95%; animation-duration: 24s; animation-delay: -8s;"></div>
         </div>
-      </div>
 
-      <aside class="hero-panel panel" aria-label="Состояние системы">
-        <div class="panel__topline">
-          <span>СОСТОЯНИЕ СРЕДЫ</span>
-          <span class="mono">SYS / 01</span>
+        <div class="hud-horizontal-bars">
+            <div class="h-bar" style="top: 8%; animation-duration: 20s; animation-delay: 0s;"></div>
+            <div class="h-bar" style="top: 15%; animation-duration: 15s; animation-delay: -3s;"></div>
+            <div class="h-bar" style="top: 28%; animation-duration: 25s; animation-delay: -1s;"></div>
+            <div class="h-bar" style="top: 42%; animation-duration: 18s; animation-delay: -5s;"></div>
+            <div class="h-bar" style="top: 55%; animation-duration: 22s; animation-delay: -2s;"></div>
+            <div class="h-bar" style="top: 68%; animation-duration: 16s; animation-delay: -7s;"></div>
+            <div class="h-bar" style="top: 82%; animation-duration: 28s; animation-delay: -4s;"></div>
+            <div class="h-bar" style="top: 92%; animation-duration: 19s; animation-delay: -6s;"></div>
         </div>
-        <div class="system-readout">
-          <span class="system-readout__value">04</span>
-          <span class="system-readout__label">АКТИВНЫХ РАЗДЕЛА</span>
+
+        <div class="hud-crosshairs">
+            <div class="crosshair c-tl"></div>
+            <div class="crosshair c-tr"></div>
+            <div class="crosshair c-bl"></div>
+            <div class="crosshair c-br"></div>
         </div>
-        <div class="meter" role="img" aria-label="Стабильность узла: 87 процентов">
-          <div class="meter__labels"><span>СТАБИЛЬНОСТЬ УЗЛА</span><span>87%</span></div>
-          <div class="meter__track"><span style="width: 87%"></span></div>
+        
+        <div class="hud-angled-brackets">
+            <div class="ang-bracket ab-1"></div>
+            <div class="ang-bracket ab-2"></div>
+            <div class="ang-bracket ab-3"></div>
         </div>
-        <ul class="status-list">
-          <li><span>СИНХРОНИЗАЦИЯ</span><span class="status-value">ЗАВЕРШЕНА</span></li>
-          <li><span>ПОСЛЕДНЯЯ СВЕРКА</span><span class="status-value">06:42:18</span></li>
-          <li><span>КАНАЛ ДАННЫХ</span><span class="status-value">СТАБИЛЕН</span></li>
-        </ul>
-        <span class="corner corner--tl" aria-hidden="true"></span>
-        <span class="corner corner--br" aria-hidden="true"></span>
-      </aside>
 
-      <div class="hero__index mono" aria-hidden="true">К/С — 001.04</div>
-    </section>
+        <div class="hud-glitch-bars"></div>
+        <div class="hud-noise"></div>
+        <div class="hud-scanlines"></div>
+        <div class="hud-vignette"></div>
+    </div>
 
-    <section class="page-shell section-block" aria-labelledby="sections-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow"><span class="eyebrow__line"></span> НАВИГАЦИЯ</p>
-          <h2 id="sections-title">Разделы системы</h2>
+    <div class="hud-decorations" aria-hidden="true">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+        
+        <div class="hud-float-shape shape-1">
+            <svg viewBox="0 0 100 100"><polygon points="50,5 95,50 50,95 5,50" fill="none" stroke="currentColor" stroke-width="1"/></svg>
         </div>
-        <p class="section-heading__note">Выберите направление для просмотра данных.</p>
-      </div>
-
-      <div class="feature-grid">
-        <a class="feature-card panel" href="roles.html">
-          <span class="feature-card__number mono">01 / РЕЕСТР</span>
-          <span class="feature-card__icon" aria-hidden="true">▤</span>
-          <h3>Роли и функции</h3>
-          <p>Каталог назначений, ответственности и рабочих профилей комплекса.</p>
-          <span class="feature-card__link">Перейти в раздел <span aria-hidden="true">→</span></span>
-          <span class="corner corner--tl" aria-hidden="true"></span>
-          <span class="corner corner--br" aria-hidden="true"></span>
-        </a>
-
-        <a class="feature-card panel" href="role.html">
-          <span class="feature-card__number mono">02 / ПРОФИЛЬ</span>
-          <span class="feature-card__icon" aria-hidden="true">⌁</span>
-          <h3>Профиль роли</h3>
-          <p>Пример детальной записи с вкладками для связанных материалов.</p>
-          <span class="feature-card__link">Открыть профиль <span aria-hidden="true">→</span></span>
-          <span class="corner corner--tl" aria-hidden="true"></span>
-          <span class="corner corner--br" aria-hidden="true"></span>
-        </a>
-
-        <a class="feature-card panel" href="object.html">
-          <span class="feature-card__number mono">03 / ДОСЬЕ</span>
-          <span class="feature-card__icon" aria-hidden="true">▧</span>
-          <h3>Карточка объекта</h3>
-          <p>Сводка наблюдений, условий содержания и текущих ограничений.</p>
-          <span class="feature-card__link">Открыть карточку <span aria-hidden="true">→</span></span>
-          <span class="corner corner--tl" aria-hidden="true"></span>
-          <span class="corner corner--br" aria-hidden="true"></span>
-        </a>
-      </div>
-    </section>
-
-    <section class="page-shell section-block">
-      <div class="notice panel">
-        <span class="notice__mark" aria-hidden="true">!</span>
-        <div>
-          <p class="eyebrow">СЛУЖЕБНОЕ ПРИМЕЧАНИЕ</p>
-          <p>Материалы в этом интерфейсе демонстрационные. Содержание разделов может обновляться после сверки записей.</p>
+        <div class="hud-float-shape shape-2">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/></svg>
         </div>
-        <span class="mono notice__ref">REF / 7A</span>
-      </div>
-    </section>
-  </main>
+        <div class="hud-float-shape shape-3">
+            <svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+        
+        <div class="hud-bracket bracket-1"></div>
+        <div class="hud-bracket bracket-2"></div>
+        <div class="hud-bracket bracket-3"></div>
+        <div class="hud-bracket bracket-4"></div>
+        
+        <div class="hud-line-decor hl-1"></div>
+        <div class="hud-line-decor hl-2"></div>
+        <div class="hud-line-decor hl-3"></div>
+    </div>
 
-  <footer class="site-footer page-shell">
-    <span>КОНТУР <span class="footer-muted">/ Справочная среда</span></span>
-    <span class="mono">ВЕРСИЯ 2.4.1 <span class="footer-muted">·</span> <span id="current-year">2026</span></span>
-  </footer>
+    <header class="main-header">
+        <div class="header-bar"></div>
+        <div class="header-content">
+            <div class="logo-area">
+                <span class="logo-text">ZONE-99-RU</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Меню" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <ul>
+                    <li><a href="#home" class="nav-item active" data-page="home">Главная</a></li>
+                    <li><a href="#roles" class="nav-item" data-page="roles">Роли</a></li>
+                    <li><a href="#dossier" class="nav-item" data-page="dossier">SCP-объект</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-decor">
+            <span class="decor-block"></span>
+            <span class="decor-block"></span>
+            <span class="decor-block"></span>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="page-home" class="page active">
+            <div class="hero-container">
+                <div class="hero-top-decor">
+                    <span class="hero-tag">/// SECURE LINE ///</span>
+                    <div class="hero-progress-bar"><div class="hero-progress-fill"></div></div>
+                </div>
+                
+                <h1 class="hero-title" data-text="ZONE-99-RU">ZONE-99-RU</h1>
+                <p class="hero-subtitle">СПЕЦИАЛИЗИРОВАННЫЙ ИССЛЕДОВАТЕЛЬСКИЙ КОМПЛЕКС</p>
+                
+                <div class="hero-content">
+                    <p>Торжественно приветствуем вас на официальном информационном портале комплекса ZONE-99-RU, функционирующего под эгидой Фонда SCP.</p>
+                    <p>Настоящим сообщаем, что ZONE-99-RU представляет собой специализированное, многоуровневое исследовательское учреждение закрытого типа, основной профиль деятельности которого заключается в комплексном изучении, строгом содержании и всестороннем анализе аномальных объектов, сущностей и феноменов. Спектр свойств данных аномалий отличается исключительным разнообразием: от физических и биологических до меметических, пространственно-временных и иных проявлений неизвестной природы.</p>
+                    <p>Наше учреждение оснащено передовым оборудованием и укомплектовано высококвалифицированным персоналом, чья первоочередная задача — обеспечение безопасности человечества путем изоляции и научного исследования непознанного. Мы обеспечиваем строгий контроль над любыми проявлениями аномальной активности на вверенной нам территории, гарантируя соблюдение всех протоколов содержания и исследовательских регламентов.</p>
+                    
+                    <div class="hero-warning">
+                        <div class="warning-icon">!</div>
+                        <p>Добро пожаловать в мир, где наука встречается с необъяснимым. Помните: соблюдение правил безопасности — залог вашей жизни и успеха миссии.</p>
+                    </div>
+                </div>
+                
+                <div class="hero-bottom-decor">
+                    <span class="decor-tag">/// END OF TRANSMISSION ///</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-roles" class="page">
+            <div class="section-top">
+                <h2 class="section-heading">РЕЕСТР РОЛЕЙ</h2>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="ПОИСК..." autocomplete="off">
+                    <span class="search-icon">_</span>
+                </div>
+            </div>
+            <div class="roles-list" id="roles-list"></div>
+        </section>
+
+        <section id="page-dossier" class="page">
+            <div class="dossier-wrapper">
+                <div class="dossier-topline">
+                    <span class="dossier-code">SCP-536-ZM</span>
+                    <span class="dossier-class">КЛАСС: ЕВКЛИД</span>
+                </div>
+                
+                <div class="dossier-heading">
+                    <h2>«Возвращенец»</h2>
+                </div>
+
+                <div class="dossier-body">
+                    <div class="dossier-visual">
+                        <div class="visual-scan"></div>
+                        <div class="visual-corners">
+                            <span class="corner tl"></span>
+                            <span class="corner tr"></span>
+                            <span class="corner bl"></span>
+                            <span class="corner br"></span>
+                        </div>
+                        <span class="visual-text">NO IMAGE<br>DATA</span>
+                    </div>
+                    
+                    <div class="dossier-meta">
+                        <ul class="meta-rows">
+                            <li><span class="meta-label">Объект №:</span><span class="meta-value">SCP-536-ZM</span></li>
+                            <li><span class="meta-label">Класс:</span><span class="meta-value accent">Евклид</span></li>
+                            <li><span class="meta-label">Статус:</span><span class="meta-value">Содержится</span></li>
+                            <li><span class="meta-label">Уровень угрозы:</span><span class="meta-value accent">Оранжевый</span></li>
+                            <li><span class="meta-label">Тип:</span><span class="meta-value">Гуманоид / Тауматург</span></li>
+                            <li><span class="meta-label">Зона:</span><span class="meta-value">Сектор 4-B</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dossier-tabs">
+                    <div class="tabs-nav" role="tablist">
+                        <button class="tab-button active" role="tab" aria-selected="true" data-tab="tab-1">Условия содержания</button>
+                        <button class="tab-button" role="tab" aria-selected="false" data-tab="tab-2">Описание</button>
+                        <button class="tab-button" role="tab" aria-selected="false" data-tab="tab-3">Приложения</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="tab-1" role="tabpanel">
+                            <h3 class="panel-title">Особые условия содержания</h3>
+                            <p>SCP-536-ZM содержится в стандартной камере содержания гуманоидов в исследовательском секторе Зоны 99-RU. На запястьях SCP-536-ZM должны быть закреплены ЭВА-редукторы для контроля потенциала. Во время транспортировки SCP-536-ZM должен находиться в системе фиксации для гуманоидов, под постоянным наблюдением как минимум двух вооружённых охранников.</p>
+                        </div>
+                        <div class="tab-panel" id="tab-2" role="tabpanel">
+                            <h3 class="panel-title">Описание</h3>
+                            <p>SCP-536-ZM является гуманоидом-тауматургом “синего типа”, известным под именем Виталий Смирнов. Согласно государственным архивам Российской Федерации, SCP-536-ZM родился в 2010 году и проживал в городе Новосибирске, РФ вплоть до лета 2023 года, когда субъект пропал без вести в лесу близ деревни Южино, Колыванского района, Новосибирской области. SCP-536-ZM представляет собой подростка 16 лет восточнославянского происхождения, рост 185 см, вес 70 кг. Исходя из наблюдений SCP-536-ZM начинает получать отдачу от тауматических манипуляций после определённого порога, что не свойственно другим тауматургам.</p>
+                            <p>Впервые SCP-536-ZM был обнаружен в селе Чибирлей, Кузнецкий район отрядом МОГ Эпсилон 6 (“Деревенские дураки”), помогавшей отряду МОГ Ню 7 (“Удар Молота”) в нейтрализации сбежавшей при транспортировке из Зоны 7-RU в Милитаризированный Участок Биосодержания 14 особи SCP-939-143. Во время первого контакта с SCP-536-ZM были обнаружены его способности в области тауматургии. Посредством тауматических манипуляций, проходящих на первый взгляд без отдачи и видимых источников ЭВА, SCP-536-ZM смог подчинить пятерых бойцов МОГ Эпсилон 6, что привело к гибели восьми бойцов МОГ Эпсилон 6 при задержании SCP-536-ZM.</p>
+                        </div>
+                        <div class="tab-panel" id="tab-3" role="tabpanel">
+                            <h3 class="panel-title">Служебные пометки</h3>
+                            <p>Данные находятся в архиве. Требуется авторизация уровня 3 и выше.</p>
+                            <div class="access-denied">
+                                <span>ДОСТУП ЗАПРЕЩЕН</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="loading-screen" class="loading-screen hidden">
+        <div class="loader-box">
+            <div class="loader-text">ЗАГРУЗКА...</div>
+            <div class="loader-track"><div class="loader-fill"></div></div>
+            <div class="loader-percent">0%</div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
