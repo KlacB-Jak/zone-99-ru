@@ -242,22 +242,6 @@ const rolesData = [
                 requirements: "—"
             },
             {
-                title: "Класс Д (2 категория)",
-                status: "Не занята",
-                access: 0,
-                class: "D",
-                knowledge: "Отсутствуют.",
-                requirements: "—"
-            },
-            {
-                title: "Класс Д (3 категория)",
-                status: "Не занята",
-                access: 0,
-                class: "D",
-                knowledge: "Отсутствуют.",
-                requirements: "—"
-            },
-            {
                 title: "Класс Д (3 категория)",
                 status: "Не занята",
                 access: 0,
